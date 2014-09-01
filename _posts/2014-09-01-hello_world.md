@@ -1,9 +1,7 @@
 ---
 layout: post
-title: hello_world
+title: Hello World
 ---
-
-# Hello World
 
 My name is Brett Yukich and I like making things. I plan to make posts about the
 various things I make. Mostly as a way to encourage myself to actually finish

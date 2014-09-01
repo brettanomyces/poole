@@ -1,22 +1,21 @@
 #!/bin/bash
+# Create a post using ./post Title_with_underscores
 
 filename=$(date +"%Y-%m-%d-"$1".md")
 
-if  [ -e "$filename" ];
+if  [ ! -e "$filename" ];
 then
-	# file exists
-	# open file
-	vim "$filename"
-else
+	# file not exists
 	# create file
 	touch "$filename"
-
 	# add YAML front matter
 	echo --- >> "$filename"
 	echo layout: post >> "$filename"
-	echo title: "$1" >> "$filename"
+	# replace underscores in title with spaces
+	title="$1"
+	title=${title//_/ }
+	echo title: "$title" >> "$filename"
 	echo --- >> "$filename"
-
-	# open file
-	vim "$filename"
 fi
+# open file
+vim "$filename"

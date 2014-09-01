@@ -1,0 +1,22 @@
+#!/bin/bash
+
+filename=$(date +"%Y-%m-%d-"$1".md")
+
+if  [ -e "$filename" ];
+then
+	# file exists
+	# open file
+	vim "$filename"
+else
+	# create file
+	touch "$filename"
+
+	# add YAML front matter
+	echo --- >> "$filename"
+	echo layout: post >> "$filename"
+	echo title: "$1" >> "$filename"
+	echo --- >> "$filename"
+
+	# open file
+	vim "$filename"
+fi
